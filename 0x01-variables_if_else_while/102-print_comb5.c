@@ -7,17 +7,11 @@
  */
 int main(void)
 {
-	int c;
-	int d;
-	int e;
-	int f;
-	int flag;
+	int c, d, e, f, flag;
 
-	c = '0';
-	while (c <= '9')
+	for (c = '0'; c <= '9'; c++)
 	{
-		d = '0';
-		while (d <= '9')
+		for (d = '0'; d <= '9'; d++)
 		{
 			if (d < '9')
 			{
@@ -30,11 +24,11 @@ int main(void)
 				f = '0';
 			}
 			flag = 0;
-			while (e <= '9')
+			for (; e <= '9'; e++)
 			{
 				if (flag)
 					f = '0';
-				while (f <= '9')
+				for (; f <= '9'; f++)
 				{
 					putchar(c);
 					putchar(d);
@@ -46,16 +40,11 @@ int main(void)
 						putchar(',');
 						putchar(' ');
 					}
-					f++;
 				}
 				flag = 1;
-				e++;
 			}
-			d++;
 		}
-		c++;
 	}
 	putchar('\n');
-
 	return (0);
 }
