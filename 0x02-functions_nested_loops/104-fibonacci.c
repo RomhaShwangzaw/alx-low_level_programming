@@ -11,11 +11,11 @@ int main(void)
 
 	a = 1;
 	b = 2;
-	printf("%Lf, %Lf", a, b);
+	printf("%.0Lf, %.0Lf", a, b);
 	for (i = 2; i < 98; i++)
 	{
 		c = a + b;
-		printf(", %Lf", c);
+		printf(", %.0Lf", c);
 		a = b;
 		b = c;
 	}
