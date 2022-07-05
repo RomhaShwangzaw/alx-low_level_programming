@@ -16,7 +16,7 @@ void print_times_table(int n)
 	while (a <= n)
 	{
 		b = 0;
-		while (b <= 9)
+		while (b <= n)
 		{
 			c = a * b;
 			print_digits(c);
