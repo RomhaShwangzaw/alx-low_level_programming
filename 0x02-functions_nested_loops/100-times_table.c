@@ -20,7 +20,7 @@ void print_times_table(int n)
 		{
 			c = a * b;
 			print_digits(c);
-			if (b != 9)
+			if (b != n)
 			{
 				_putchar(',');
 				_putchar(' ');
