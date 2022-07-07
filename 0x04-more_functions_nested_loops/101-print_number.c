@@ -27,7 +27,9 @@ int reverse_digits(int n)
 void print_number(int n)
 {
 	int rev;
+	char c;
 
+	c = '-';
 	if (n == 0)
 		_putchar(n % 10 + '0');
 
@@ -35,7 +37,7 @@ void print_number(int n)
 	if (rev < 0)
 	{
 		rev = -rev;
-		_putchar('-');
+		_putchar(c);
 	}
 	while (rev != 0)
 	{
