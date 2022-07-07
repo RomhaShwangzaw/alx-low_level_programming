@@ -6,9 +6,12 @@
  */
 void print_number(int n)
 {
+	int x;
+
+	x = -3;
 	if (n < 0)
 	{
-		_putchar(0x2D);
+		_putchar(x + '0');
 		n = -n;
 	}
 
