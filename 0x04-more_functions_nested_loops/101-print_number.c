@@ -29,7 +29,7 @@ void print_number(int n)
 	int rev;
 
 	if (n == 0)
-		_putchar('0');
+		_putchar(n % 10 + '0');
 
 	rev = reverse_digits(n);
 	if (rev < 0)
