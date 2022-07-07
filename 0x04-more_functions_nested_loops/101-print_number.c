@@ -29,9 +29,14 @@ void print_number(int n)
 	int rev;
 
 	if (n == 0)
-		_putchar(rev % 10 + '0');
+		_putchar('0');
 
 	rev = reverse_digits(n);
+	if (rev < 0)
+	{
+		rev = -rev;
+		_putchar('-');
+	}
 	while (rev != 0)
 	{
 		_putchar(rev % 10 + '0');
