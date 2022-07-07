@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
  * reverse_digits - reverses the digits of an integer.
@@ -29,21 +28,10 @@ void print_number(int n)
 {
 	int rev;
 
-	if (n < 0)
-	{
-		rev = reverse_digits(-n);
-		_putchar('-');
-	}
-	else if (n == 0)
-	{
-		rev = n;
-		_putchar('0');
-	}
-	else
-	{
-		rev = reverse_digits(n);
-	}
+	if (n == 0)
+		_putchar(rev % 10 + '0');
 
+	rev = reverse_digits(n);
 	while (rev != 0)
 	{
 		_putchar(rev % 10 + '0');
