@@ -15,7 +15,7 @@ void print_number(int n)
 		_putchar('-');
 		if (n == INT_MIN)
 		{
-			last_digit = (n % -10) + '0';
+			last_digit = -(n % 10) + '0';
 			n = -n / 10;
 		}
 		else
