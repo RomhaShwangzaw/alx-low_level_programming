@@ -12,8 +12,8 @@ int _atoi(char *s)
 
 	count = 0;
 	num = 0;
+	begin = _strlen(s);
 	end = _strlen(s) - 1;
-
 	for (i = 0; i < _strlen(s); i++)
 	{
 		if (s[i] >= '0' && s[i] <= '9')
@@ -39,11 +39,11 @@ int _atoi(char *s)
 		for (j = 0; j < tmp_count - 1; j++)
 			tmp_sum *= 10;
 		count--;
-		num += tmp_sum;
+		if (i == end && s[begin - 1] == '-')
+			num = -num - tmp_sum;
+		else
+			num += tmp_sum;
 	}
-	if (s[begin - 1] == '-')
-		num = -num;
-
 	return (num);
 }
 
