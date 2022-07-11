@@ -15,7 +15,7 @@ void random_password_generator(void)
 	char letter[] = "abcdefghijklmnoqprstuvwyzx";
 	char LETTER[] = "ABCDEFGHIJKLMNOQPRSTUYWVZX";
 	char symbols[] = "!@#$^&*?";
-	char password[n];
+	char password[10];
 
 	srand((unsigned int)(time(NULL)));
 	randomizer = rand() % 4;
