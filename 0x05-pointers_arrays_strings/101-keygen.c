@@ -9,28 +9,19 @@
 void random_password_generator(void)
 {
 	int i = 0;
-
-	int n = 8;
-
+	int n = 10;
 	int randomizer = 0;
-
 	char numbers[] = "0123456789";
-
 	char letter[] = "abcdefghijklmnoqprstuvwyzx";
-
 	char LETTER[] = "ABCDEFGHIJKLMNOQPRSTUYWVZX";
-
 	char symbols[] = "!@#$^&*?";
-
 	char password[8];
 
 	srand((unsigned int)(time(NULL)));
-
 	randomizer = rand() % 4;
 
 	for (i = 0; i < n; i++)
 	{
-
 		if (randomizer == 1)
 		{
 			password[i] = numbers[rand() % 10];
