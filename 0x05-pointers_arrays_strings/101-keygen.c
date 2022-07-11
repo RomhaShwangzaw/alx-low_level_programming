@@ -5,14 +5,14 @@
 
 /**
  * random_password_generator - randomly generates password of length N
- * @n: length of password
  */
-void random_password_generator(int n)
+void random_password_generator(void)
 {
 	int i = 0;
-	int randomizer = 0;
 
-	srand((unsigned int)(time(NULL)));
+	int n = 8;
+
+	int randomizer = 0;
 
 	char numbers[] = "0123456789";
 
@@ -22,7 +22,9 @@ void random_password_generator(int n)
 
 	char symbols[] = "!@#$^&*?";
 
-	char password[n];
+	char password[8];
+
+	srand((unsigned int)(time(NULL)));
 
 	randomizer = rand() % 4;
 
@@ -62,9 +64,7 @@ void random_password_generator(int n)
  */
 int main(void)
 {
-	int n = 10;
-
-	random_password_generator(n);
+	random_password_generator();
 
 	return (0);
 }
