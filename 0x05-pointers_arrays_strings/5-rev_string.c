@@ -1,7 +1,5 @@
 #include "main.h"
 
-void _strcpy(char *str1, char *str2);
-
 /**
  * rev_string - reverses a string.
  * @s: The string to be reversed.
@@ -18,16 +16,19 @@ void rev_string(char *s)
 
 /**
  * _strcpy - copies one string to another.
- * @str1: The string to be copied to.
- * @str2: The string to be copied.
+ * @dest: The string to be copied to.
+ * @src: The string to be copied.
+ * Return: the dest pointer.
  */
-void _strcpy(char *str1, char *str2)
+char *_strcpy(char *dest, char *src)
 {
 	int i;
 
-	for (i = 0; i < _strlen(str2); i++)
-		*(str1 + i) = *(str2 + i);
-	*(str1 + i) = '\0';
+	for (i = 0; i < _strlen(src); i++)
+		*(dest + i) = *(src + i);
+	*(dest + i) = '\0';
+
+	return (dest);
 }
 
 /**
