@@ -8,9 +8,9 @@
 char *cap_string(char *s)
 {
 	int i;
+	char *start = s;
 
 	for (i = 0; i < _strlen(s); i++)
-	{
 		if (s[i] >= 97 && s[i] <= 122)
 			if (s[i - 1] == 32 || s[i - 1] == '\t' || s[i - 1] == '\n'
 					|| s[i - 1] == ',' || s[i - 1] == ';'
@@ -19,12 +19,8 @@ char *cap_string(char *s)
 					|| s[i - 1] == '(' || s[i - 1] == ')'
 					|| s[i - 1] == '{' || s[i - 1] == '}')
 				s[i] -= 32;
-		
-		if (s[i] >= 97 && s[i] <= 122 && s[i - 1] == '\t')
-			s[i - 1] = ' ';
-	}
 
-	return (s);
+	return (start);
 }
 
 /**
