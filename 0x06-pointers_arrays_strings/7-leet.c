@@ -8,8 +8,9 @@
 char *leet(char *s)
 {
 	int i;
+	char *start = s;
 
-	for (i = 0; i < _strlen(s); i++)
+	for (i = 0; s[i] != '\0'; i++)
 		if (s[i] == 'a' || s[i] == 'A')
 			s[i] = '4';
 		else if (s[i] == 'e' || s[i] == 'E')
@@ -21,24 +22,5 @@ char *leet(char *s)
 		else if (s[i] == 'l' || s[i] == 'L')
 			s[i] = '1';
 
-	return (s);
-}
-
-/**
- * _strlen - returns the length of a string.
- * @s: The string, whose length will be calculated.
- * Return: The length of s.
- */
-int _strlen(char *s)
-{
-	int count;
-
-	count = 0;
-	while (*s)
-	{
-		count++;
-		s++;
-	}
-
-	return (count);
+	return (start);
 }
