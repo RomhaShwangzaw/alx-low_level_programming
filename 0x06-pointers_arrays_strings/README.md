@@ -16,3 +16,5 @@ capitalizes all words of a string.
 encodes a string into 1337.
 # 100-rot13.c
 encodes a string using rot13.
+# 101-print_number.c
+prints an integer, using only _putchar.
