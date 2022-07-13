@@ -14,3 +14,5 @@ changes all lowercase letters of a string to uppercase.
 capitalizes all words of a string.
 # 7-leet.c
 encodes a string into 1337.
+# 100-rot13.c
+encodes a string using rot13.
