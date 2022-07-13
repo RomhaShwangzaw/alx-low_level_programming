@@ -7,11 +7,10 @@
  */
 char *cap_string(char *s)
 {
-	int i, j;
+	unsigned long int i, j;
 	char *start = s;
 	char sep[] = {32, '\t', '\n', ',', ';', '.',
-		'!', '?', '"', '(', ')', '{', '}',
-		'\a', '\b', '\v', '\f', '\r'};
+		'!', '?', '"', '(', ')', '{', '}'}
 
 	for (i = 0; s[i] != '\0'; i++)
 		if (s[i] >= 'a' && s[i] <= 'z')
