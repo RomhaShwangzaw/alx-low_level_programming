@@ -20,3 +20,5 @@ encodes a string using rot13.
 prints an integer, using only _putchar.
 # 102-magic.c
 lets the program print a[2] = 98, followed by a new line, by modifying just one line of code.
+# 103-infinite_add.c
+adds two numbers.
