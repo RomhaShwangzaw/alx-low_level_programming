@@ -22,3 +22,5 @@ prints an integer, using only _putchar.
 lets the program print a[2] = 98, followed by a new line, by modifying just one line of code.
 # 103-infinite_add.c
 adds two numbers.
+# 104-print_buffer.c
+prints a buffer.
