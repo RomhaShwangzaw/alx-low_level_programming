@@ -18,3 +18,5 @@ encodes a string into 1337.
 encodes a string using rot13.
 # 101-print_number.c
 prints an integer, using only _putchar.
+# 102-magic.c
+lets the program print a[2] = 98, followed by a new line, by modifying just one line of code.
