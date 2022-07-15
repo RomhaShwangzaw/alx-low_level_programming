@@ -24,11 +24,11 @@ int main(void)
 		a = b;
 		b = c;
 	}
-	
+
 	a1 = a / l;
 	a2 = a % l;
 	b1 = b / l;
-	b2 = b %l;
+	b2 = b % l;
 
 	for (i = 92; i < 98; i++)
 	{
