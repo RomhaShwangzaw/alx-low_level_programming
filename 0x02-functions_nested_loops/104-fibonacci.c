@@ -34,8 +34,8 @@ int main(void)
 	{
 		c1 = a1 + b1;
 		c2 = a2 + b2;
-		printf(", %lu", c1);
-		printf("%lu", c2);
+		printf(", %lu", c1 + (c2 / l));
+		printf("%lu", c2 % l);
 		a1 = b1;
 		a2 = b2;
 		b1 = c1;
