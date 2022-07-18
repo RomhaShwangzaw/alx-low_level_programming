@@ -16,3 +16,5 @@ prints the chessboard.
 prints the sum of the two diagonals of a square matrix of integers.
 # 100-set_string.c
 sets the value of a pointer to a char.
+# 101-crackme_password
+contains the password for the crackme2 executable.
