@@ -18,6 +18,9 @@ char *_strstr(char *haystack, char *needle)
 	while (needle[len_n] != '\0')
 		len_n++;
 
+	if (len_n == 0)
+		return (haystack);
+
 	len_diff = len_h - len_n;
 
 	while (*haystack != '\0')
