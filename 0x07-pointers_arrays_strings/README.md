@@ -10,3 +10,5 @@ gets the length of a prefix substring.
 searches a string for any of a set of bytes.
 # 5-strstr.c
 locates a substring.
+# 7-print_chessboard.c
+prints the chessboard.
