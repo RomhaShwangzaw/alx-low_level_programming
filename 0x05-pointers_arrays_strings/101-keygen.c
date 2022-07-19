@@ -10,7 +10,7 @@
  */
 int main(void)
 {
-	int i, sum, tmp;
+	int i, sum;
 	char password[100];
 
 	i = sum = 0;
