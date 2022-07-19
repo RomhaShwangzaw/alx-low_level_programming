@@ -7,13 +7,9 @@
  * @end: Ending point of the search.
  * Return: The natural square root, if found, or -1 if not.
  */
-int find_sqrt(int n, int start, int end)
+int find_sqrt(unsigned int n, int start, int end)
 {
-	int mid;
-
-	/* If n is a negative number */
-	if (n < 0)
-		return (-1);
+	unsigned long mid;
 
 	/* If n does not have a natural square root */
 	if (start > end)
@@ -47,6 +43,10 @@ int find_sqrt(int n, int start, int end)
 int _sqrt_recursion(int n)
 {
 	int start = 0, end = n;
+
+	/* If n is a negative number */
+	if (n < 0)
+		return (-1);
 
 	return (find_sqrt(n, start, end));
 }
