@@ -6,3 +6,5 @@ prints a string in reverse.
 returns the length of a string.
 # 3-factorial.c
 returns the factorial of a given number.
+# 4-pow_recursion.c
+returns the value of x raised to the power of y.
