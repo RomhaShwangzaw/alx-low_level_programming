@@ -1,5 +1,24 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
+
+/**
+ * digits_only - checks if a string consists of digits only.
+ * @str: The string to be checked.
+ *
+ * Return: 1 if string contains only digits, 0 otherwise.
+ */
+int digits_only(const char *str)
+{
+	int i;
+
+	for (i = 0; i < (int)strlen(str); i++)
+		if (isdigit(str[i]) == 0) /* it is not a digit */
+			return (0);
+
+	return (1);
+}
 
 /**
  * main - adds positive numbers and displays the result.
@@ -10,20 +29,18 @@
  */
 int main(int argc, char *argv[])
 {
-	long int i, num, sum = 0;
-	char *end;
+	int i, sum = 0;
 
 	for (i = 1; i < argc; i++)
 	{
-		num = strtol(argv[i], &end, 10);
-		if (end == argv[i])
+		if (!digits_only(argv[i]))
 		{
 			printf("Error\n");
 			return (1);
 		}
-		sum += num;
+		sum += atoi(argv[i]);
 	}
-	printf("%ld\n", sum);
+	printf("%d\n", sum);
 
 	return (0);
 }
