@@ -10,9 +10,9 @@
  */
 char **strtow(char *str)
 {
-	char **s;
+	char **s, **a;
 	char tmp[100];
-	int i = 0;
+	int i = 0, j;
 
 	if (str == NULL || strcmp(str, "") == 0)
 		return (NULL);
@@ -26,7 +26,6 @@ char **strtow(char *str)
 	s[i] = malloc(15 * sizeof(char));
 	if (s[i] == NULL)
 		return (NULL);
-
 	s[i] = strtok(tmp, " ");
 	while (s[i])
 	{
@@ -34,9 +33,15 @@ char **strtow(char *str)
 		s[i] = malloc(15 * sizeof(char));
 		if (s[i] == NULL)
 			return (NULL);
-
 		s[i] = strtok(NULL, " ");
 	}
 
-	return (s);
+	a = malloc((i + 1) * sizeof(*a));
+	for (j = 0; j < i; j++)
+	{
+		a[j] = malloc((strlen(s[j]) + 1) * sizeof(char));                                                                               		strcpy(a[j], s[j]);
+	}
+	a[j] = NULL;
+
+	return (a);
 }
