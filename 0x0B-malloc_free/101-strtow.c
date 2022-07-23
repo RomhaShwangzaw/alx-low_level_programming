@@ -23,14 +23,16 @@ char **strtow(char *str)
 	if (s == NULL)
 		return (NULL);
 
-	s[i] = malloc(15 * sizeof(char));
+	s[i] = malloc(20 * sizeof(char));
 	if (s[i] == NULL)
 		return (NULL);
 	s[i] = strtok(tmp, " ");
+	if (s[i] == NULL)
+		return (NULL);
 	while (s[i])
 	{
 		i++;
-		s[i] = malloc(15 * sizeof(char));
+		s[i] = malloc(20 * sizeof(char));
 		if (s[i] == NULL)
 			return (NULL);
 		s[i] = strtok(NULL, " ");
@@ -39,7 +41,8 @@ char **strtow(char *str)
 	a = malloc((i + 1) * sizeof(*a));
 	for (j = 0; j < i; j++)
 	{
-		a[j] = malloc((strlen(s[j]) + 1) * sizeof(char));                                                                               		strcpy(a[j], s[j]);
+		a[j] = malloc((strlen(s[j]) + 1) * sizeof(char));
+		strcpy(a[j], s[j]);
 	}
 	a[j] = NULL;
 
