@@ -11,11 +11,13 @@
 char **strtow(char *str)
 {
 	char **s;
-	char *token;
+	char tmp[100];
 	int i = 0;
 
 	if (str == NULL || strcmp(str, "") == 0)
 		return (NULL);
+
+	strcpy(tmp, str);
 
 	s = malloc(20 * sizeof(*s));
 	if (s == NULL)
@@ -25,17 +27,15 @@ char **strtow(char *str)
 	if (s[i] == NULL)
 		return (NULL);
 
-	token = strtok(str, " ");
-	strcpy(s[i], token);
-	while (s[i] != NULL)
+	s[i] = strtok(tmp, " ");
+	while (s[i])
 	{
 		i++;
 		s[i] = malloc(15 * sizeof(char));
 		if (s[i] == NULL)
 			return (NULL);
 
-		token = strtok(NULL, " ");
-		strcpy(s[i], token);
+		s[i] = strtok(NULL, " ");
 	}
 
 	return (s);
