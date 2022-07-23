@@ -13,7 +13,7 @@
 int **alloc_grid(int width, int height)
 {
 	int **table;
-	int i;
+	int i, j;
 
 	if (width <= 0 || height <= 0)
 		return (NULL);
@@ -26,8 +26,12 @@ int **alloc_grid(int width, int height)
 	for (i = 0; i < height; i++)
 	{
 		table[i] = malloc(width * sizeof(int));
+
+		/* If malloc fails, we have to free every allocated memory iteratively */
 		if (table[i] == NULL)
 		{
+			for (j = 0; j < i; j++)
+				free(table[j]);
 			free(table);
 			return (NULL);
 		}
