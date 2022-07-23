@@ -18,7 +18,7 @@ int **alloc_grid(int width, int height)
 	if (width <= 0 || height <= 0)
 		return (NULL);
 
-	table = malloc(height * width * sizeof(int));
+	table = malloc(height * sizeof(*table));
 	if (table == NULL)
 		return (NULL);
 
@@ -27,7 +27,10 @@ int **alloc_grid(int width, int height)
 	{
 		table[i] = malloc(width * sizeof(int));
 		if (table[i] == NULL)
+		{
+			free(table);
 			return (NULL);
+		}
 
 		table[i] = memset(table[i], 0, width * sizeof(int));
 	}
