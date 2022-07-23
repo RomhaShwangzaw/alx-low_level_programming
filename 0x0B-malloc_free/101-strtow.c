@@ -10,7 +10,7 @@
  */
 char **strtow(char *str)
 {
-	char **s, **a;
+	char **s, *token_arr[20];
 	char tmp[100];
 	int i = 0, j;
 
@@ -19,32 +19,23 @@ char **strtow(char *str)
 
 	strcpy(tmp, str);
 
-	s = malloc(20 * sizeof(*s));
-	if (s == NULL)
+	token_arr[i] = strtok(tmp, " ");
+	if (token_arr[i] == NULL)
 		return (NULL);
 
-	s[i] = malloc(20 * sizeof(char));
-	if (s[i] == NULL)
-		return (NULL);
-	s[i] = strtok(tmp, " ");
-	if (s[i] == NULL)
-		return (NULL);
-	while (s[i])
+	while (token_arr[i])
 	{
 		i++;
-		s[i] = malloc(20 * sizeof(char));
-		if (s[i] == NULL)
-			return (NULL);
-		s[i] = strtok(NULL, " ");
+		token_arr[i] = strtok(NULL, " ");
 	}
 
-	a = malloc((i + 1) * sizeof(*a));
+	s = malloc((i + 1) * sizeof(*s));
 	for (j = 0; j < i; j++)
 	{
-		a[j] = malloc((strlen(s[j]) + 1) * sizeof(char));
-		strcpy(a[j], s[j]);
+		s[j] = malloc((strlen(token_arr[j]) + 1) * sizeof(char));
+		strcpy(s[j], token_arr[j]);
 	}
-	a[j] = NULL;
+	s[j] = NULL;
 
-	return (a);
+	return (s);
 }
