@@ -11,7 +11,7 @@
 char **strtow(char *str)
 {
 	char **s, *token_arr[20];
-	char tmp[100];
+	char tmp[110];
 	int i = 0, j;
 
 	if (str == NULL || strcmp(str, "") == 0)
