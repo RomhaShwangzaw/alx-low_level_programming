@@ -30,7 +30,6 @@ void calc_product(int *a, int *b, int len1, int len2)
 
 	product = malloc(sizeof(*product) * (len1 + len2 + 1));
 	product = memset(product, 0, len1 + len2 + 1);
-
 	for (i = 0; i < len2; i++)
 	{
 		for (j = 0; j < len1; j++)
@@ -60,6 +59,9 @@ void calc_product(int *a, int *b, int len1, int len2)
 	}
 
 	_putchar('\n');
+	free(product);
+	free(a);
+	free(b);
 }
 
 /**
