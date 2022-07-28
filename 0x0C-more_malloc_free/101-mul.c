@@ -25,10 +25,10 @@ void print_error(void)
  * @len2: The string length of the second number.
  * Return: Nothing.
  */
-void calc_product(int *a, int *b, int len1, int len2)
+void calc_product(int *a, int *b, long int len1, long int len2)
 {
 	int *product;
-	int i, j, tmp;
+	long int i, j, tmp;
 
 	product = malloc(sizeof(*product) * (len1 + len2));
 	if (product == NULL)
@@ -74,10 +74,10 @@ void calc_product(int *a, int *b, int len1, int len2)
  * @len: The length of the number string.
  * Return: The reversed number string, if successful.
  */
-int *reverse_num_string(char *numstr, int len)
+int *reverse_num_string(char *numstr, long int len)
 {
 	int *num;
-	int i, j;
+	long int i, j;
 
 	num = malloc(sizeof(*num) * len);
 	if (num == NULL)
@@ -104,7 +104,7 @@ int *reverse_num_string(char *numstr, int len)
  */
 int main(int argc, char *argv[])
 {
-	int len1, len2;
+	long int len1, len2;
 	int *a, *b;
 
 	if (argc != 3 || argv[1] == NULL || argv[2] == NULL)
