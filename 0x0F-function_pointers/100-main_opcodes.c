@@ -26,7 +26,8 @@ int main(int argc, char *argv[])
 	}
 
 	f = (unsigned char *)main;
-	for (i = 0; i < bytes; i++, f++)
+	f = f + 4;
+	for (i = 0; i < bytes; i++)
 	{
 		printf("%02x", *(f + i));
 		if (i != bytes - 1)
