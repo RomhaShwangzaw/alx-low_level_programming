@@ -1,5 +1,5 @@
-#include "variadic_functions.h"
 #include <stdio.h>
+#include "variadic_functions.h"
 
 /**
  * place_separator - places a separator, if needed.
@@ -21,6 +21,7 @@ void place_separator(unsigned int i, char c)
 		}
 		j++;
 	}
+	printf("");
 }
 
 /**
@@ -71,6 +72,6 @@ void print_all(const char * const format, ...)
 		i++;
 	}
 
-	va_end(ap);
 	printf("\n");
+	va_end(ap);
 }
