@@ -24,7 +24,6 @@ void print_all(const char * const format, ...)
 		if (i && (format[i] == 'c' || format[i] == 'i' ||
 					format[i] == 'f' || format[i] == 's'))
 			printf(", ");
-
 		switch (format[i])
 		{
 			case 'c':
@@ -39,7 +38,10 @@ void print_all(const char * const format, ...)
 			case 's':
 				str = va_arg(ap, char *);
 				if (str == NULL)
-					str = "(nil)";
+				{
+					printf("(nil)");
+					break;
+				}
 				printf("%s", str);
 				break;
 			default:
@@ -47,7 +49,6 @@ void print_all(const char * const format, ...)
 		}
 		i++;
 	}
-
 	va_end(ap);
 	printf("\n");
 }
