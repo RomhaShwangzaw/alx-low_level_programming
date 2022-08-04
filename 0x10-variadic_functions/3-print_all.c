@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include "variadic_functions.h"
+#include <stdio.h>
 
 /**
  * place_separator - places a separator, if needed.
@@ -11,7 +11,6 @@ void place_separator(unsigned int i, char c)
 {
 	char *type = "cifs";
 	unsigned int j = 0;
-	char *s = "";
 
 	while (type[j] && i)
 	{
@@ -22,7 +21,6 @@ void place_separator(unsigned int i, char c)
 		}
 		j++;
 	}
-	printf("%s", s);
 }
 
 /**
@@ -61,10 +59,7 @@ void print_all(const char * const format, ...)
 			case 's':
 				str = va_arg(ap, char *);
 				if (str == NULL)
-				{
-					printf("(nil)");
-					break;
-				}
+					str = "(nil)";
 				printf("%s", str);
 				break;
 			default:
@@ -73,6 +68,6 @@ void print_all(const char * const format, ...)
 		i++;
 	}
 
-	printf("\n");
 	va_end(ap);
+	printf("\n");
 }
