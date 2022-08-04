@@ -2,6 +2,28 @@
 #include <stdio.h>
 
 /**
+ * place_separator - places a separator, if needed.
+ * @i: The format string's current index.
+ * @c: The format string's current character.
+ * Return: Nothing.
+ */
+void place_separator(unsigned int i, char c)
+{
+	char *type = "cifs";
+	unsigned int j = 0;
+
+	while (type[j] && i)
+	{
+		if (c == type[j])
+		{
+			printf(", ");
+			return;
+		}
+		j++;
+	}
+}
+
+/**
  * print_all - prints anything.
  * @format: A list of types of arguments passed to the function:
  * c: char
@@ -21,9 +43,8 @@ void print_all(const char * const format, ...)
 	va_start(ap, format);
 	while (format && format[i])
 	{
-		if (i && (format[i] == 'c' || format[i] == 'i' ||
-					format[i] == 'f' || format[i] == 's'))
-			printf(", ");
+		place_separator(i, format[i]);
+
 		switch (format[i])
 		{
 			case 'c':
@@ -38,10 +59,7 @@ void print_all(const char * const format, ...)
 			case 's':
 				str = va_arg(ap, char *);
 				if (str == NULL)
-				{
-					printf("(nil)");
-					break;
-				}
+					str = "(nil)";
 				printf("%s", str);
 				break;
 			default:
@@ -49,6 +67,7 @@ void print_all(const char * const format, ...)
 		}
 		i++;
 	}
+
 	va_end(ap);
 	printf("\n");
 }
