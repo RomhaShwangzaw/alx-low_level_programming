@@ -1,99 +1,76 @@
-#include <stdio.h>
 #include "variadic_functions.h"
+#include <stdio.h>
 
 /**
- * op_c - Print character .
- * @form: name va_list
- *
+ * place_separator - places a separator, if needed.
+ * @i: The format string's current index.
+ * @c: The format string's current character.
  * Return: Nothing.
  */
-
-void op_c(va_list form)
+void place_separator(unsigned int i, char c)
 {
-	printf("%c", va_arg(form, int));
-}
-/**
- * op_i - Print Integer
- * @form: name va_list
- *
- * Return: Nothing.
- */
+	char *type = "cifs";
+	unsigned int j = 0;
 
-void op_i(va_list form)
-{
-	printf("%i", va_arg(form, int));
-}
-/**
- * op_f - print FLoat numbers
- * @form: name of va_list
- *
- * Return: Nothing.
- */
-
-void op_f(va_list form)
-{
-	printf("%f", va_arg(form, double));
-}
-/**
- * op_s -print string
- * @form: name va_list
- *
- * Return: Nothing.
- */
-
-void op_s(va_list form)
-{
-	char *str;
-
-	str = va_arg(form, char *);
-	if (str == NULL)
+	while (type[j] && i)
 	{
-		printf("(nil)");
-		return;
+		if (c == type[j])
+		{
+			printf(", ");
+			return;
+		}
+		j++;
 	}
-	printf("%s", str);
 }
 
 /**
- * print_all - check the code for Holberton School students.
- * @format: number of arguments in character format
+ * print_all - prints anything.
+ * @format: A list of types of arguments passed to the function:
+ * c: char
+ * i: integer
+ * f: float
+ * s: char * (if the string is NULL, print (nil) instead)
+ * any other char should be ignored
  *
  * Return: Nothing.
  */
-
 void print_all(const char * const format, ...)
 {
+	unsigned int i = 0;
+	va_list ap;
+	char *str;
 
-	va_list all;
-	unsigned int i, j;
-	char *separator = "";
-
-	f ops[] = {
-		{"c", op_c},
-		{"i", op_i},
-		{"f", op_f},
-		{"s", op_s},
-		};
-
-	va_start(all, format);
-	i = 0;
+	va_start(ap, format);
 	while (format && format[i])
 	{
-		j = 0;
-		while (j < 4)
+		place_separator(i, format[i]);
+
+		switch (format[i])
 		{
-			if (ops[j].op[0] == format[i])
-			{
-				printf("%s", separator);
-				separator = ", ";
-				ops[j].f(all);
+			case 'c':
+				printf("%c", va_arg(ap, int));
 				break;
-			}
-			j++;
+			case 'i':
+				printf("%d", va_arg(ap, int));
+				break;
+			case 'f':
+				printf("%f", va_arg(ap, double));
+				break;
+			case 's':
+				str = va_arg(ap, char *);
+				if (str == NULL)
+				{
+					printf("(nil)");
+					break;
+				}
+				printf("%s", str);
+				break;
+			default:
+				break;
 		}
-	i++;
+		i++;
 	}
 
+	va_end(ap);
 	printf("\n");
-	va_end(all);
 }
