@@ -11,6 +11,7 @@ void place_separator(unsigned int i, char c)
 {
 	char *type = "cifs";
 	unsigned int j = 0;
+	char *s = "";
 
 	while (type[j] && i)
 	{
@@ -21,7 +22,7 @@ void place_separator(unsigned int i, char c)
 		}
 		j++;
 	}
-	printf("");
+	printf("%s", s);
 }
 
 /**
