@@ -17,15 +17,14 @@ size_t print_listint_safe(const listint_t *head)
 
 	for (; head; head = head->next)
 	{
-		if (head->checked)
-		{
-			printf("-> [%p] %d\n", (void *)head, head->n);
-			return (count);
-		}
 		printf("[%p] %d\n", (void *)head, head->n);
 		count++;
-		head->checked = 1;
+		if (head <= head->next)
+		{
+			printf("-> [%p] %d\n", (void *)head->next, head->next->n);
+			return (count);
+		}
 	}
 
-	return (count);
+	exit(98);
 }
