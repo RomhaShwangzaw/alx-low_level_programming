@@ -19,7 +19,7 @@ listint_t *find_listint_loop(listint_t *head)
 	{
 		if (tmp->checked)
 			return (tmp);
-		
+
 		tmp->checked = 1;
 	}
 
