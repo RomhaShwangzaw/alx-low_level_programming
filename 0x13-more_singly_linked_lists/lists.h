@@ -7,7 +7,6 @@
 /**
  * struct listint_s - singly linked list
  * @n: integer
- * @checked: a flag to check for loops in the linked list
  * @next: points to the next node
  *
  * Description: singly linked list node structure
@@ -16,7 +15,6 @@
 typedef struct listint_s
 {
 	int n;
-	int checked;
 	struct listint_s *next;
 } listint_t;
 
