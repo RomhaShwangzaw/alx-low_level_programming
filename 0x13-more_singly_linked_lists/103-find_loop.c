@@ -17,10 +17,8 @@ listint_t *find_listint_loop(listint_t *head)
 
 	for (tmp = head; tmp; tmp = tmp->next)
 	{
-		if (tmp->checked)
-			return (tmp);
-
-		tmp->checked = 1;
+		if (tmp <= tmp->next)
+			return (tmp->next);
 	}
 
 	return (NULL);
