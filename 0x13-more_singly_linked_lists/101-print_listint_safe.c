@@ -14,25 +14,17 @@
 size_t print_listint_safe(const listint_t *head)
 {
 	size_t count = 0;
-	listint_t *node = NULL;
 
-	if (head == NULL)
-		return (0);
-
-	printf("[%p] %d\n", (void *)head, head->n);
-	count++;
-
-	for (node = head->next; node; node = node->next)
+	for (; head; head = head->next)
 	{
-		if (node->checked || head == node)
+		printf("[%p] %d\n", (void *)head, head->n);
+		count++;
+
+		if (head <= head->next)
 		{
-			printf("-> [%p] %d\n", (void *)node, node->n);
+			printf("-> [%p] %d\n", (void *)head->next, head->next->n);
 			return (count);
 		}
-
-		printf("[%p] %d\n", (void *)node, node->n);
-		count++;
-		node->checked = 1;
 	}
 
 	return (count);
