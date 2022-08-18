@@ -5,7 +5,7 @@
  * @n: The number to be converted to binary.
  * Return: Nothing.
  *
- * Description: 
+ * Description:
  * - You are not allowed to use arrays
  * - You are not allowed to use malloc
  * - You are not allowed to use the % or / operators
