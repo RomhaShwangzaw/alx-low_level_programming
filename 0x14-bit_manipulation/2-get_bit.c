@@ -10,6 +10,10 @@ int get_bit(unsigned long int n, unsigned int index)
 {
 	unsigned int bit, ret;
 
+	/* Check for index out of range */
+	if (index >= (sizeof(n) * 8))
+		return (-1);
+
 	bit = 1 << index;
 	ret = (n & bit) ? 1 : 0;
 
