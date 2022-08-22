@@ -9,7 +9,11 @@
  */
 void str_error(char *format, char *str, int status)
 {
-	dprintf(STDERR_FILENO, format, str);
+	if (str == NULL)
+		dprintf(STDERR_FILENO, format);
+	else
+		dprintf(STDERR_FILENO, format, str);
+
 	exit(status);
 }
 
