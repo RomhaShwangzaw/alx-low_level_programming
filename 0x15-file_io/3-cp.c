@@ -58,7 +58,10 @@ int main(int argc, char *argv[])
 	int from, to, r, w, c, buf[1024];
 
 	if (argc != 3)
-		str_error("Usage: cp file_from file_to\n", NULL, 97);
+	{
+		dprintf("Usage: cp file_from file_to\n");
+		exit(97);
+	}
 
 	from = open(argv[1], O_RDONLY);
 	r = read(from, buf, 1024);
