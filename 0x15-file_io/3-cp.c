@@ -9,11 +9,7 @@
  */
 void str_error(char *format, char *str, int status)
 {
-	if (str == NULL)
-		dprintf(STDERR_FILENO, format);
-	else
-		dprintf(STDERR_FILENO, format, str);
-
+	dprintf(STDERR_FILENO, format, str);
 	exit(status);
 }
 
@@ -69,19 +65,19 @@ int main(int argc, char *argv[])
 	if (from == -1 || r == -1)
 		str_error("Error: Can't read from file %s\n", argv[1], 98);
 
-	to = open(argv[2], O_CREAT | O_WRONLY | O_APPEND | O_TRUNC, 0664);
-	if (to == -1)
-		str_error("Error: Can't write to %s\n", argv[2], 99);
+	to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	while (r != 0)
 	{
 		w = write(to, buf, r);
-		if (w == -1)
+		if (to == -1 || w == -1)
 			str_error("Error: Can't write to %s\n", argv[2], 99);
 
 		r = read(from, buf, 1024);
 		if (r == -1)
 			str_error("Error: Can't read from file %s\n", argv[1], 98);
+
+		to = open(argv[2], O_WRONLY | O_APPEND);
 	}
 
 	c = close(from);
