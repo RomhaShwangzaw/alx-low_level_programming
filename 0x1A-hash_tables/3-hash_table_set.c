@@ -13,41 +13,44 @@
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t *node, *new, *tmp;
+	hash_node_t *node, *new;
 	unsigned long int index = key_index((const unsigned char *)key, ht->size);
 
 	if (ht == NULL || key == NULL || *key == '\0' || value == NULL)
 		return (0);
+
+	node = ht->array[index];
+	while (node)
+	{
+		if (strcmp(node->key, key) == 0)
+		{
+			free(node->value);
+			node->value = strdup(value);
+			if (node->value == NULL)
+				return (0);
+			return (1);
+		}
+		node = node->next;
+	}
 
 	new = malloc(sizeof(hash_node_t));
 	if (new == NULL)
 		return (0);
 
 	new->key = strdup(key);
-	new->value = strdup(value);
-	new->next = NULL;
-
-	node = ht->array[index];
-	if (node != NULL)
+	if (new->key == NULL)
 	{
-		tmp = node;
-		while (tmp)
-		{
-			if (strcmp(tmp->key, key) == 0)
-			{
-				free(tmp->value);
-				tmp->value = new->value;
-				free(new->key);
-				free(new);
-				return (1);
-			}
-			tmp = tmp->next;
-		}
-
-		/* case of collision */
-		new->next = ht->array[index];
+		free(new);
+		return (0);
 	}
+	new->value = strdup(value);
+	if (new->value == NULL)
+	{
+		free(new->key);
+		free(new);
+		return (0);
+	}
+	new->next = ht->array[index];
 	ht->array[index] = new;
-
 	return (1);
 }
