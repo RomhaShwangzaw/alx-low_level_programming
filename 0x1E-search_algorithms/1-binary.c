@@ -26,11 +26,7 @@ int binary_search_recursive(int *array, int start, int end, int value)
 		printf(" %d,", array[i]);
 	printf(" %d\n", array[end - 1]);
 
-	if (((end + start) % 2) == 0)
-		mid = ((end + start) / 2) - 1;
-	else
-		mid = (end + start) / 2;
-
+	mid = (start + end - 1) / 2;
 	if (array[mid] == value)
 		return (mid);
 	else if (array[mid - 1] >= value)
